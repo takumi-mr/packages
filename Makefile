@@ -5,7 +5,7 @@ ARCH ?= arm
 _REPO_NAME ?= pikvm
 _REPO_KEY ?= 912C773ABBD1B584
 _REPO_DEST ?= root@pikvm.org:/var/www/
-_PIBUILDER_REPO ?= https://github.com/pikvm/pi-builder
+_PIBUILDER_REPO ?= https://github.com/takumi-mr/pi-builder
 
 _BUILDENV_IMAGE = pikvm/packages-buildenv-$(BOARD)-$(ARCH)
 _BUILDENV_DIR = ./.pi-builder/$(BOARD)-$(ARCH)
