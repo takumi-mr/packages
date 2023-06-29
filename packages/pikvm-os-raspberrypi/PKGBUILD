@@ -1,0 +1,25 @@
+pkgname=pikvm-os-raspberrypi
+pkgver=0.1
+pkgrel=7
+pkgdesc="Pi-KVM OS Metapackage"
+url="https://pikvm.org"
+license=(GPL)
+arch=(any)
+depends=(
+	linux-api-headers-pikvm
+	linux-firmware-pikvm
+	firmware-raspberrypi-pikvm
+	raspberrypi-firmware-pikvm
+	raspberrypi-bootloader-pikvm
+	raspberrypi-bootloader-x-pikvm
+	linux-rpi-pikvm
+	linux-rpi-headers-pikvm
+)
+replaces=(pikvm-os-raspberrypi4)
+source=()
+md5sums=()
+
+
+package() {
+	echo stub
+}

@@ -1,0 +1,8 @@
+post_install() {
+	post_upgrade
+}
+
+post_upgrade() {
+	mkdir -p /var/lib/tailscale || true
+	chmod 700 /var/lib/tailscale || true
+}
