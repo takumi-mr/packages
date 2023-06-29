@@ -120,7 +120,6 @@ buildenv: $(_BUILDENV_DIR)
 	rm -rf $(_BUILDENV_DIR)/stages/buildenv
 	cp -a buildenv $(_BUILDENV_DIR)/stages/buildenv
 	$(MAKE) -C $(_BUILDENV_DIR) os \
-		REPO_URL=$(ARCH_REPO_URL) \
 		NC=$(NC) \
 		PASS_ENSURE_TOOLBOX=1 \
 		PASS_ENSURE_BINFMT=1 \
