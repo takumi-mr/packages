@@ -126,8 +126,6 @@ buildenv: $(_BUILDENV_DIR)
 		BUILD_OPTS=" \
 			--build-arg REPO_NAME=$(_REPO_NAME) \
 			--build-arg REPO_KEY=$(_REPO_KEY) \
-			--build-arg ALARM_UID=$(_ALARM_UID) \
-			--build-arg ALARM_GID=$(_ALARM_GID) \
 			--tag $(_BUILDENV_IMAGE) \
 		" \
 		PROJECT=pikvm-packages \

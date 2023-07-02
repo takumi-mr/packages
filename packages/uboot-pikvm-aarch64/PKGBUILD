@@ -6,9 +6,11 @@ pkgname=('uboot-pikvm-rock64-rk3328'
 		'uboot-pikvm-roc-cc-rk3328'
 		'uboot-pikvm-nanopi-r2s-rk3328'
 		'uboot-pikvm-rock-pi-e-rk3328'
-        'uboot-pikvm-nanopi-neo2'
-        'uboot-pikvm-orangepi-zero-plus'        
-        'uboot-pikvm-libretech-all-h3-cc-h5')
+    'uboot-pikvm-nanopi-neo2'
+    'uboot-pikvm-orangepi-zero-plus'        
+    'uboot-pikvm-libretech-all-h3-cc-h5'
+    'uboot-pikvm-pine64_plus')
+
 pkgver=2020.10
 pkgrel=1
 arch=('aarch64')
@@ -22,8 +24,8 @@ source=("ftp://ftp.denx.de/pub/u-boot/u-boot-${pkgver}.tar.bz2"
 		'100-nanopi-r2s-rk3328.patch'
 		'rk3328-nanopi-r2s.dtb'
 		'boot.txt.rock64'
-        'boot.txt.sunxi'
-        'mkscr')
+    'boot.txt.sunxi'
+    'mkscr')
 md5sums=(SKIP SKIP SKIP SKIP SKIP SKIP SKIP)
 
 
@@ -34,7 +36,8 @@ boards_rk3328=('rock64-rk3328'
             
 boards_sun50i_h5=('nanopi_neo2'
             'orangepi_zero_plus'
-            'libretech_all_h3_cc_h5')            
+            'libretech_all_h3_cc_h5'
+            'pine64_plus')            
 
 prepare() {
   unset CFLAGS CXXFLAGS LDFLAGS
@@ -74,6 +77,17 @@ build() {
   tools/mkimage -A arm -O linux -T script -C none -n "U-Boot boot script" -d ../boot.txt.sunxi ../boot.scr.sunxi
 }
 
+package_uboot-pikvm-pine64_plus() {
+  pkgdesc="U-Boot for Pine64+"
+  install=uboot-sunxi.install
+
+  install -d "${pkgdir}"/boot
+  install -Dm644 bin_pine64_plus/u-boot.bin "${pkgdir}"/boot
+
+  install -Dm644 boot.txt.sunxi "${pkgdir}"/boot/boot.txt
+  install -Dm644 boot.scr.sunxi "${pkgdir}"/boot/boot.scr
+  install -Dm755 mkscr "${pkgdir}"/boot/mkscr
+}
 
 package_uboot-pikvm-rock64-rk3328() {
   pkgdesc="U-Boot for Rock64"
